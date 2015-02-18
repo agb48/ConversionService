@@ -27,7 +27,12 @@ public class Application
             .build();
 
         PersonDTO personDTO = conversionService.convert(person, PersonDTO.class);
-        personDTO.toString();
+
+        String toString = conversionService.convert(personDTO,String.class);
+
+        System.out.println(toString);
+
+        PersonDTO back = conversionService.convert(toString, PersonDTO.class);
 
 
         assertThat(personDTO.getName(), is(person.getName()));
